@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import NewsContainer from '../NewsContainer/NewsContainer';
 import Menu from '../Menu/Menu';
+import SearchForm from '../SearchForm/SearchForm';
 import local from '../../data/local';
 import entertainment from '../../data/entertainment';
 import health from '../../data/health';
@@ -17,24 +18,39 @@ class App extends Component {
      health,
      science,
      technology,
-     newsType: 'local'
+     currentNews: local
+
     }
   }
 
   displayNewsType = (event, category) => {
     event.preventDefault();
-    this.setState({newsType: category})
+    this.setState({currentNews: this.state[category]})
  }
 
+
+
+filterArticles = (event, searchString) => {
+  event.preventDefault();
+  let specificNews = this.state.currentNews.filter(article => {
+    return article.headline.toLowerCase().includes(searchString.toLowerCase()) || article.description.toLowerCase().includes(searchString.toLowerCase())
+  })
+  specificNews.length > 0 ?
+  this.setState({ currentNews: specificNews }) :
+  this.setState({ currentNews: local })
+}
 
   render () {
     return (
       <div className="app">
         <section>
+        <SearchForm filterArticles={this.filterArticles}/>
+        </section>
+        <section>
         <Menu displayNewsType={this.displayNewsType}/>
         </section>
         <section>
-        <NewsContainer news={this.state[this.state.newsType]}/>
+        <NewsContainer news={this.state.currentNews}/>
         </section>
       </div>
     );
