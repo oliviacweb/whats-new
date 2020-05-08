@@ -2,7 +2,6 @@ import React from 'react';
 import './NewsContainer.css';
 import NewsArticle from '../NewsArticle/NewsArticle.js';
 
-
 const NewsContainer = ({ news }) => {
   console.log({ news })
   const allNews = news.map(article => {
@@ -20,7 +19,6 @@ const NewsContainer = ({ news }) => {
     </section>
   )
 }
-
 
 
 export default NewsContainer;

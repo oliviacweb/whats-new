@@ -1,0 +1,8 @@
+button {
+  margin-top: 3em;
+  background-color: pink;
+  font-weight: bold;
+  height: 6em;
+  font-size: .8em;
+  border-radius: 1em;
+}

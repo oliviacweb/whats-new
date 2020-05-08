@@ -1,9 +1,10 @@
 .news-article {
-  height: 50%;
+  height: 28em;
   width: 31%;
   background: white;
   border: 2px solid black;
   margin: 1%;
+  padding: .4em;
   display: flex;
   flex-direction: column;
 }

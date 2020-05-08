@@ -5,10 +5,30 @@
 }
 
 .app {
-  display: flex;
-  background: #141527;
+  background-color: #141527;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  grid-template-areas:
+  "header header header"
+  "menu articles articles";
   height: 100vh;
-  text-align: center;
-  width: 100%;
   overflow: scroll;
+}
+
+
+.header {
+  align-items: center;
+  border: 2px solid #ffae01;
+  color: #ffae01;
+  display: flex;
+  grid-area: header;
+  justify-content: space-between;
+  padding: 1% 10% 1% 2%;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  grid-area: menu;
+  margin: .5rem .5rem 0 .5rem;
 }
