@@ -19,7 +19,6 @@ class App extends Component {
      science,
      technology,
      currentNews: local
-
     }
   }
 
@@ -27,8 +26,6 @@ class App extends Component {
     event.preventDefault();
     this.setState({currentNews: this.state[category]})
  }
-
-
 
 filterArticles = (event, searchString) => {
   event.preventDefault();
@@ -43,10 +40,11 @@ filterArticles = (event, searchString) => {
   render () {
     return (
       <div className="app">
-        <section>
+        <section className="header">
+        <h2>What's New</h2>
         <SearchForm filterArticles={this.filterArticles}/>
         </section>
-        <section>
+        <section className="menu">
         <Menu displayNewsType={this.displayNewsType}/>
         </section>
         <section>
